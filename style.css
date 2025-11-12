@@ -1,0 +1,427 @@
+/* Enhanced crack site aesthetic: more popups, fake progress bars, countdowns, etc. */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Comic Sans MS", cursive, sans-serif;
+  background: linear-gradient(135deg, #8b0000, #000000, #1c1c1c);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #fff;
+  text-align: center;
+  line-height: 1.6;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+header {
+  background: #000;
+  padding: 25px;
+  border-bottom: 5px solid #ff0;
+  box-shadow: 0 0 25px #f00, 0 0 50px #ff0;
+}
+h1 {
+  font-size: 3.5em;
+  text-shadow: 0 0 15px #ff0, 0 0 30px #f00, 0 0 45px #ff0;
+  margin: 0;
+  animation: neon 1.5s infinite;
+  letter-spacing: 2px;
+}
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #ff0, 0 0 20px #f00;
+  }
+  50% {
+    text-shadow: 0 0 20px #ff0, 0 0 40px #f00, 0 0 60px #ff0;
+  }
+}
+.badge {
+  display: inline-block;
+  background: #0f0;
+  color: #000;
+  padding: 5px 15px;
+  font-weight: bold;
+  border-radius: 20px;
+  margin: 10px;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.container {
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 25px;
+  background: rgba(15, 15, 15, 0.95);
+  border: 4px double #ff0;
+  border-radius: 18px;
+  box-shadow: 0 0 40px #f00, inset 0 0 20px #300;
+}
+.download-btn {
+  display: inline-block;
+  margin: 35px 0;
+  padding: 22px 60px;
+  background: linear-gradient(45deg, #ff0, #f90);
+  color: #000;
+  font-size: 2.2em;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 0 30px #fff, 0 0 60px #ff0;
+  animation: pulse 1.8s infinite;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.download-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+.download-btn:hover:before {
+  left: 100%;
+}
+.download-btn:hover {
+  background: #fff;
+  color: #c00;
+  transform: scale(1.12);
+  box-shadow: 0 0 50px #ff0;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.countdown {
+  background: #200;
+  padding: 20px;
+  margin: 20px 0;
+  border: 3px dashed #f00;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ff0;
+}
+.progress-bar {
+  width: 100%;
+  background: #333;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: inset 0 0 10px #000;
+}
+.progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #0f0, #0c0);
+  animation: loading 10s linear infinite;
+  position: relative;
+}
+.progress:after {
+  content: "Downloading...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.features {
+  text-align: left;
+  margin: 35px 0;
+  padding: 25px;
+  background: #111;
+  border-left: 8px solid #ff0;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #222;
+}
+.features h3 {
+  color: #ff0;
+  font-size: 1.8em;
+  margin-top: 0;
+}
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+.features li {
+  margin: 18px 0;
+  font-size: 1.25em;
+  position: relative;
+  padding-left: 40px;
+  transition: color 0.3s;
+}
+.features li:hover {
+  color: #ff0;
+}
+.features li:before {
+  content: "★";
+  color: #0f0;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.warning {
+  background: #300;
+  padding: 20px;
+  margin: 25px 0;
+  border: 3px dashed #f00;
+  font-weight: bold;
+  color: #ff0;
+  border-radius: 12px;
+  animation: shake 3s infinite;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+.instructions {
+  text-align: left;
+  margin: 35px 0;
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  border: 2px solid #444;
+}
+.instructions h3 {
+  color: #ff0;
+  font-size: 1.7em;
+}
+.instructions ol {
+  padding-left: 25px;
+}
+.instructions li {
+  margin: 14px 0;
+  font-size: 1.15em;
+  position: relative;
+}
+.instructions code {
+  background: #222;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #0f0;
+}
+.screenshots {
+  margin: 40px 0;
+  text-align: center;
+}
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 2rem;
+}
+.screenshots img {
+  width: 100%;
+  border: 3px solid #ff0;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #f00;
+  transition: transform 0.3s;
+}
+.screenshots img:hover {
+  transform: scale(1.05);
+}
+.mirror-links {
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mirror-links a {
+  display: block;
+  margin: 12px 0;
+  padding: 14px;
+  background: #400;
+  color: #ff0;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.mirror-links a:hover {
+  background: #600;
+  transform: translateY(-2px);
+}
+.fake-ads {
+  margin: 40px 0;
+  padding: 20px;
+  background: #222;
+  border: 2px dashed #666;
+  font-style: italic;
+  color: #aaa;
+  border-radius: 10px;
+}
+.fake-ads a {
+  color: #0ff;
+  text-decoration: underline;
+}
+.testimonials {
+  margin: 40px 0;
+  padding: 25px;
+  background: #111;
+  border-radius: 12px;
+  border-left: 6px solid #0f0;
+}
+.testimonials q {
+  font-style: italic;
+  color: #ddd;
+  display: block;
+  margin: 15px 0;
+}
+.testimonials cite {
+  color: #ff0;
+  font-weight: bold;
+}
+.system-req {
+  background: #003300;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 10px;
+  border: 2px solid #0f0;
+}
+.system-req h3 {
+  color: #0f0;
+  margin-top: 0;
+}
+.system-req ul {
+  text-align: left;
+  display: inline-block;
+}
+.system-req li {
+  margin: 8px 0;
+}
+footer {
+  margin-top: 60px;
+  padding: 30px;
+  background: #000;
+  font-size: 1em;
+  color: #666;
+  border-top: 3px solid #333;
+}
+.virus-scan {
+  margin: 25px 0;
+  padding: 20px;
+  background: #003300;
+  border: 3px solid #0f0;
+  border-radius: 12px;
+  font-weight: bold;
+  animation: glow 2s infinite;
+  font-size: 1.3em;
+}
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px #0f0;
+  }
+  50% {
+    box-shadow: 0 0 30px #0f0, 0 0 50px #0f0;
+  }
+  100% {
+    box-shadow: 0 0 10px #0f0;
+  }
+}
+.popup-ad {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  padding: 30px;
+  border: 5px solid #f00;
+  border-radius: 15px;
+  box-shadow: 0 0 50px #ff0;
+  z-index: 9999;
+  display: none;
+  max-width: 400px;
+  animation: popup 0.5s;
+}
+@keyframes popup {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+.popup-ad button {
+  background: #f00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.popup-ad button:hover {
+  background: #ff0;
+  color: #000;
+}
